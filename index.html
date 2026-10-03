@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mr.Valor | متجر المنتجات الرقمية</title>
+
+  <meta
+    name="description"
+    content="Mr.Valor متجر رقمي للقوالب والأدوات الرقمية الجاهزة."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-container">
+
+      <a href="index.html" class="brand">
+        Mr.Valor
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#home">الرئيسية</a>
+        <a href="#categories">التصنيفات</a>
+        <a href="#products">المنتجات</a>
+        <a href="#about">عن Mr.Valor</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="search-toggle" type="button" aria-label="بحث">
+          🔍
+        </button>
+
+        <button id="cart-button" type="button" aria-label="السلة">
+          🛒
+          <span id="cart-count">0</span>
+        </button>
+
+        <button id="menu-button" type="button" aria-label="القائمة">
+          ☰
+        </button>
+      </div>
+
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="#home">الرئيسية</a>
+      <a href="#categories">التصنيفات</a>
+      <a href="#products">المنتجات</a>
+      <a href="#about">عن Mr.Valor</a>
+    </div>
+
+    <div id="search-box" class="search-box">
+      <div class="container">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="ابحث عن منتج..."
+        >
+      </div>
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section id="home" class="hero">
+      <div class="container hero-content">
+
+        <div class="hero-text">
+
+          <span class="eyebrow">
+            DIGITAL PRODUCTS • MR.VALOR
+          </span>
+
+          <h1>
+            أدوات رقمية جاهزة
+            <br>
+            <span>تختصر عليك الوقت.</span>
+          </h1>
+
+          <p>
+            قوالب وملفات عملية تساعدك على تنظيم عملك،
+            إدارة مشاريعك، وتحويل أفكارك إلى نتائج
+            بطريقة بسيطة واحترافية.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#products" class="primary-button">
+              استكشف المنتجات
+            </a>
+
+            <a href="#categories" class="secondary-button">
+              تصفح التصنيفات
+            </a>
+          </div>
+
+          <div class="hero-features">
+            <span>✓ ملفات رقمية فورية</span>
+            <span>✓ تصميم عملي</span>
+            <span>✓ مناسب للجوال والكمبيوتر</span>
+          </div>
+
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <small>YOUR DIGITAL TOOLKIT</small>
+
+            <h2>
+              Work smarter.
+            </h2>
+
+            <div class="hero-stats">
+              <div>
+                <strong>24</strong>
+                <span>Templates</span>
+              </div>
+
+              <div>
+                <strong>08</strong>
+                <span>Spreadsheets</span>
+              </div>
+
+              <div>
+                <strong>100%</strong>
+                <span>Digital</span>
+              </div>
+            </div>
+
+            <div class="hero-tags">
+              <span>Excel</span>
+              <span>Canva</span>
+              <span>Sheets</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section id="categories" class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>CATEGORIES</span>
+
+          <h2>
+            كل ما تحتاجه في مكان واحد
+          </h2>
+
+          <p>
+            ابدأ من نوع الملف الذي تحتاجه الآن.
+          </p>
+        </div>
+
+        <div class="categories-grid">
+
+          <a href="#products" class="category-card">
+            <div class="category-icon">✦</div>
+
+            <h3>
+              Canva Templates
+            </h3>
+
+            <p>
+              قوالب جاهزة وقابلة للتعديل
+            </p>
+
+            <span>←</span>
+          </a>
+
+          <a href="#products" class="category-card">
+            <div class="category-icon">▦</div>
+
+            <h3>
+              Google Sheets
+            </h3>
+
+            <p>
+              جداول وأدوات تنظيم ذكية
+            </p>
+
+            <span>←</span>
+          </a>
+
+          <a href="#products" class="category-card">
+            <div class="category-icon">▤</div>
+
+            <h3>
+              Excel
+            </h3>
+
+            <p>
+              ملفات عملية للحساب والإدارة
+            </p>
+
+            <span>←</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section id="products" class="section products-section">
+      <div class="container">
+
+        <div class="section-heading products-heading">
+
+          <div>
+            <span>FEATURED</span>
+
+            <h2>
+              منتجات مختارة
+            </h2>
+          </div>
+
+          <a href="#products">
+            عرض الكل ←
+          </a>
+
+        </div>
+
+
+        <div class="products-grid">
+
+          <!-- PRODUCT 1 -->
+          <article
+            class="product-card"
+            data-product
+            data-category="canva"
+          >
+
+            <a
+              href="product.html"
+              class="product-preview product-link"
+              aria-label="عرض Social Media Content Pack"
+            >
+              <div class="preview-label">
+                CANVA
+              </div>
+
+              <div class="preview-title">
+                CONTENT<br>
+                PACK
+              </div>
+
+              <div class="preview-subtitle">
+                Social Media Kit
+              </div>
+            </a>
+
+            <div class="product-content">
+
+              <span class="product-category">
+                Canva Template
+              </span>
+
+              <h3>
+                <a href="product.html">
+                  Social Media Content Pack
+                </a>
+              </h3>
+
+              <p>
+                حزمة قوالب للمحتوى الاجتماعي.
+              </p>
+
+              <div class="product-footer">
+
+                <strong class="product-price">
+                  $7.00
+                </strong>
+
+                <a
+                  href="product.html"
+                  class="product-button"
+                >
+                  عرض المنتج
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 2 -->
+          <article
+            class="product-card"
+            data-product
+            data-category="sheets"
+          >
+
+            <div class="product-preview sheets-preview">
+              <div class="preview-label">
+                GOOGLE SHEETS
+              </div>
+
+              <div class="preview-title">
+                FINANCE<br>
+                TRACKER
+              </div>
+
+              <div class="preview-subtitle">
+                Business Dashboard
+              </div>
+            </div>
+
+            <div class="product-content">
+
+              <span class="product-category">
+                Google Sheets
+              </span>
+
+              <h3>
+                Business Finance Tracker
+              </h3>
+
+              <p>
+                متابعة مبسطة للإيرادات والمصروفات.
+              </p>
+
+              <div class="product-footer">
+
+                <strong class="product-price">
+                  $9.00
+                </strong>
+
+                <button
+                  class="product-button"
+                  type="button"
+                  data-add-to-cart="Business Finance Tracker"
+                >
+                  أضف للسلة
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PRODUCT 3 -->
+          <article
+            class="product-card"
+            data-product
+            data-category="excel"
+          >
+
+            <div class="product-preview excel-preview">
+              <div class="preview-label">
+                EXCEL
+              </div>
+
+              <div class="preview-title">
+                BUDGET<br>
+                PLANNER
+              </div>
+
+              <div class="preview-subtitle">
+                Monthly Planning
+              </div>
+            </div>
+
+            <div class="product-content">
+
+              <span class="product-category">
+                Excel File
+              </span>
+
+              <h3>
+                Monthly Budget Planner
+              </h3>
+
+              <p>
+                خطة شهرية لتنظيم الميزانية والمصاريف.
+              </p>
+
+              <div class="product-footer">
+
+                <strong class="product-price">
+                  $5.00
+                </strong>
+
+                <button
+                  class="product-button"
+                  type="button"
+                  data-add-to-cart="Monthly Budget Planner"
+                >
+                  أضف للسلة
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- WHY MR.VALOR -->
+    <section id="about" class="section about-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>WHY MR.VALOR?</span>
+
+          <h2>
+            منتجات رقمية مصممة لتُستخدم،
+            لا لتبقى في مجلد.
+          </h2>
+        </div>
+
+        <div class="features-grid">
+
+          <div class="feature">
+            <strong>01</strong>
+
+            <h3>بسيطة</h3>
+
+            <p>
+              واجهة واضحة وملفات سهلة الاستخدام.
+            </p>
+          </div>
+
+          <div class="feature">
+            <strong>02</strong>
+
+            <h3>عملية</h3>
+
+            <p>
+              أدوات مبنية حول احتياجات العمل اليومية.
+            </p>
+          </div>
+
+          <div class="feature">
+            <strong>03</strong>
+
+            <h3>رقمية</h3>
+
+            <p>
+              بدون شحن أو انتظار؛ المنتج يصل إليك رقميًا.
+            </p>
+          </div>
+
+          <div class="feature">
+            <strong>04</strong>
+
+            <h3>قابلة للتوسع</h3>
+
+            <p>
+              سنضيف منتجات وفئات وميزات جديدة باستمرار.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="container newsletter-content">
+
+        <div>
+          <span>STAY UPDATED</span>
+
+          <h2>
+            كن أول من يعرف بالمنتجات الجديدة.
+          </h2>
+        </div>
+
+        <form id="newsletter-form">
+
+          <input
+            type="email"
+            placeholder="بريدك الإلكتروني"
+            required
+          >
+
+          <button type="submit">
+            اشتراك
+          </button>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
+
+      <div>
+        <h3>Mr.Valor</h3>
+
+        <p>
+          متجر رقمي للقوالب والأدوات التي تساعدك
+          على العمل بذكاء.
+        </p>
+      </div>
+
+      <div>
+        <h4>المتجر</h4>
+
+        <a href="#categories">التصنيفات</a>
+        <a href="#products">المنتجات</a>
+      </div>
+
+      <div>
+        <h4>المساعدة</h4>
+
+        <a href="#">الأسئلة الشائعة</a>
+        <a href="#">تواصل معنا</a>
+      </div>
+
+      <div>
+        <h4>قانوني</h4>
+
+        <a href="#">الشروط</a>
+        <a href="#">الخصوصية</a>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      © 2026 Mr.Valor. جميع الحقوق محفوظة.
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+  </html>
