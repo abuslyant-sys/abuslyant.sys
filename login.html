@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>تسجيل الدخول | Mr.Valor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .login-page {
+      min-height: calc(100vh - 90px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 20px 80px;
+    }
+
+    .login-card {
+      width: min(440px, 100%);
+      padding: 42px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 28px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.018)
+        );
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.4),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      backdrop-filter: blur(18px);
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo .logo {
+      display: inline-block;
+      font-family: Inter, sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      text-decoration: none;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .login-logo .logo span {
+      color: #9999a5;
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .login-header .eyebrow {
+      display: block;
+      margin-bottom: 12px;
+      color: #777784;
+      font-family: Inter, sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .login-header h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .login-header p {
+      margin: 0;
+      color: #858592;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .login-form-group {
+      margin-bottom: 22px;
+    }
+
+    .login-form-group label {
+      display: block;
+      margin-bottom: 9px;
+      color: #e9e9ef;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .login-form-group input {
+      width: 100%;
+      height: 54px;
+      box-sizing: border-box;
+      padding: 0 16px;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 14px;
+      outline: none;
+      background: rgba(0,0,0,.3);
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      transition: .25s ease;
+    }
+
+    .login-form-group input::placeholder {
+      color: #5f5f6b;
+    }
+
+    .login-form-group input:focus {
+      border-color: rgba(255,255,255,.28);
+      background: rgba(0,0,0,.4);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.035);
+    }
+
+    .login-button {
+      width: 100%;
+      height: 54px;
+      margin-top: 5px;
+      border: 0;
+      border-radius: 14px;
+      background: #fff;
+      color: #08080c;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .login-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(255,255,255,.12);
+    }
+
+    .login-button:disabled {
+      opacity: .6;
+      cursor: wait;
+      transform: none;
+    }
+
+    .login-message {
+      display: none;
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      line-height: 1.7;
+      text-align: center;
+      background: rgba(255,255,255,.04);
+      color: #aaaab5;
+    }
+
+    .login-message.show {
+      display: block;
+    }
+
+    .login-footer {
+      margin-top: 25px;
+      text-align: center;
+      color: #666672;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 600px) {
+      .login-page {
+        padding: 35px 15px 60px;
+      }
+
+      .login-card {
+        padding: 30px 20px;
+        border-radius: 22px;
+      }
+
+      .login-header h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+
+      <a href="index.html" class="logo">
+        MR.<span>VALOR</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#products">المنتجات</a>
+        <a href="index.html#categories">التصنيفات</a>
+        <a href="index.html#about">عن Mr.Valor</a>
+      </nav>
+
+      <div class="nav-actions">
+
+        <button
+          id="search-toggle"
+          class="icon-button"
+          type="button"
+        >
+          🔍
+        </button>
+
+        <button
+          id="cart-button"
+          class="cart-button"
+          type="button"
+        >
+          🛒
+          <span id="cart-count">0</span>
+        </button>
+
+        <button
+          id="menu-button"
+          class="menu-button"
+          type="button"
+        >
+          ☰
+        </button>
+
+      </div>
+    </div>
+
+    <div id="search-box" class="search-box">
+      <div class="container">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="ابحث عن منتج..."
+          autocomplete="off"
+        >
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#products">المنتجات</a>
+      <a href="index.html#categories">التصنيفات</a>
+      <a href="index.html#about">عن Mr.Valor</a>
+    </div>
+  </header>
+
+
+  <main class="login-page">
+
+    <div class="login-card">
+
+      <div class="login-logo">
+        <a href="index.html" class="logo">
+          MR.<span>VALOR</span>
+        </a>
+      </div>
+
+
+      <div class="login-header">
+
+        <span class="eyebrow">
+          OWNER ACCESS
+        </span>
+
+        <h1>
+          تسجيل الدخول
+        </h1>
+
+        <p>
+          هذه المنطقة مخصصة لمالك Mr.Valor فقط.
+        </p>
+
+      </div>
+
+
+      <form id="owner-login-form">
+
+        <div class="login-form-group">
+
+          <label for="owner-password">
+            كلمة مرور المالك
+          </label>
+
+          <input
+            id="owner-password"
+            type="password"
+            placeholder="أدخل كلمة المرور"
+            autocomplete="current-password"
+            required
+          >
+
+        </div>
+
+
+        <button
+          id="login-button"
+          class="login-button"
+          type="submit"
+        >
+          تسجيل الدخول
+        </button>
+
+
+        <div
+          id="login-message"
+          class="login-message"
+        ></div>
+
+      </form>
+
+
+      <div class="login-footer">
+        منطقة محمية بواسطة نظام أمان Mr.Valor.
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+  <script>
+    const loginForm =
+      document.getElementById("owner-login-form");
+
+    const passwordInput =
+      document.getElementById("owner-password");
+
+    const loginButton =
+      document.getElementById("login-button");
+
+    const loginMessage =
+      document.getElementById("login-message");
+
+
+    function showMessage(message) {
+      loginMessage.textContent = message;
+      loginMessage.classList.add("show");
+    }
+
+
+    loginForm.addEventListener("submit", async (event) => {
+
+      event.preventDefault();
+
+      const password = passwordInput.value;
+
+      if (!password) {
+        showMessage("يرجى إدخال كلمة المرور.");
+        return;
+      }
+
+      loginButton.disabled = true;
+      loginButton.textContent = "جاري تسجيل الدخول...";
+      loginMessage.classList.remove("show");
+
+      try {
+
+        const response = await fetch(
+          "/api/auth/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            credentials: "same-origin",
+            body: JSON.stringify({
+              password: password
+            })
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(
+            result.message ||
+            "تعذر تسجيل الدخول."
+          );
+        }
+
+        window.location.href =
+          "/add-product.html";
+
+      } catch (error) {
+
+        showMessage(
+          error.message ||
+          "حدث خطأ أثناء تسجيل الدخول."
+        );
+
+      } finally {
+
+        loginButton.disabled = false;
+        loginButton.textContent = "تسجيل الدخول";
+
+      }
+
+    });
+  </script>
+
+</body>
+</html>
