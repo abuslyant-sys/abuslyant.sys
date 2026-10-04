@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>إضافة منتج | Mr.Valor</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+
+      <a href="index.html" class="logo">
+        MR.<span>VALOR</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#products">المنتجات</a>
+        <a href="index.html#categories">التصنيفات</a>
+        <a href="index.html#about">عن Mr.Valor</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="search-toggle" class="icon-button" type="button" aria-label="البحث">
+          🔍
+        </button>
+
+        <button id="cart-button" class="cart-button" type="button">
+          🛒
+          <span id="cart-count">0</span>
+        </button>
+
+        <button id="menu-button" class="menu-button" type="button" aria-label="القائمة">
+          ☰
+        </button>
+      </div>
+
+    </div>
+
+    <div id="search-box" class="search-box">
+      <div class="container">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="ابحث عن منتج..."
+          autocomplete="off"
+        >
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#products">المنتجات</a>
+      <a href="index.html#categories">التصنيفات</a>
+      <a href="index.html#about">عن Mr.Valor</a>
+    </div>
+  </header>
+
+
+  <main class="product-page">
+
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="index.html">الرئيسية</a>
+        <span>←</span>
+        <span>إضافة منتج</span>
+      </div>
+
+
+      <section class="product-form-section">
+
+        <div class="section-heading">
+          <span class="eyebrow">MR.VALOR MARKETPLACE</span>
+
+          <h1>إضافة منتج</h1>
+
+          <p>
+            أضف منتجك الرقمي إلى متجر Mr.Valor.
+          </p>
+        </div>
+
+
+        <form id="add-product-form" class="product-form">
+
+          <div class="form-group">
+            <label for="product-name">
+              اسم المنتج
+            </label>
+
+            <input
+              id="product-name"
+              name="product-name"
+              type="text"
+              placeholder="مثال: Social Media Content Pack"
+              required
+            >
+          </div>
+
+
+          <div class="form-group">
+            <label for="product-description">
+              وصف المنتج
+            </label>
+
+            <textarea
+              id="product-description"
+              name="product-description"
+              rows="6"
+              placeholder="اكتب وصفًا واضحًا للمنتج..."
+              required
+            ></textarea>
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="product-price">
+                السعر بالدولار
+              </label>
+
+              <input
+                id="product-price"
+                name="product-price"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="7"
+                required
+              >
+            </div>
+
+
+            <div class="form-group">
+              <label for="product-category">
+                التصنيف
+              </label>
+
+              <select
+                id="product-category"
+                name="product-category"
+                required
+              >
+                <option value="">اختر التصنيف</option>
+                <option value="Canva">Canva</option>
+                <option value="Google Sheets">Google Sheets</option>
+                <option value="Excel">Excel</option>
+                <option value="Other">أخرى</option>
+              </select>
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="product-url">
+              رابط المنتج
+            </label>
+
+            <input
+              id="product-url"
+              name="product-url"
+              type="url"
+              placeholder="https://..."
+              required
+            >
+
+            <small>
+              ضع رابط المنتج الرقمي أو رابط التسليم.
+            </small>
+          </div>
+
+
+          <div class="form-group">
+            <label for="product-image">
+              صورة المنتج
+            </label>
+
+            <input
+              id="product-image"
+              name="product-image"
+              type="file"
+              accept="image/*"
+            >
+
+            <small>
+              يمكنك إضافة صورة للمنتج. سيتم تفعيل رفع الصور وربطها بالتخزين لاحقًا.
+            </small>
+          </div>
+
+
+          <div class="form-actions">
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              إضافة المنتج
+            </button>
+
+            <a
+              href="index.html"
+              class="btn btn-secondary"
+            >
+              إلغاء
+            </a>
+
+          </div>
+
+        </form>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div>
+          <a href="index.html" class="logo">
+            MR.<span>VALOR</span>
+          </a>
+
+          <p>
+            متجر رقمي عالمي للمنتجات والأدوات الرقمية.
+          </p>
+        </div>
+
+        <div>
+          <h3>Mr.Valor</h3>
+
+          <a href="index.html">الرئيسية</a>
+          <a href="index.html#products">المنتجات</a>
+          <a href="index.html#about">عن المتجر</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 Mr.Valor. جميع الحقوق محفوظة.
+        </p>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+  <script src="add-product.js"></script>
+
+</body>
+  </html>
