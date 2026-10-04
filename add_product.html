@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>إضافة منتج | MR.VALOR</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo">
+        MR<span>.</span>VALOR
+      </a>
+
+      <nav class="main-nav">
+
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#categories">التصنيفات</a>
+        <a href="index.html#products">المنتجات</a>
+        <a href="index.html#about">عن Mr.Valor</a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <button
+          type="button"
+          id="search-toggle"
+          class="icon-button"
+          aria-label="بحث"
+        >
+          🔍
+        </button>
+
+        <button
+          type="button"
+          id="cart-button"
+          class="cart-button"
+        >
+          🛒
+          <span id="cart-count">0</span>
+        </button>
+
+        <button
+          type="button"
+          id="menu-button"
+          class="menu-button"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+    <div id="search-box" class="search-box">
+
+      <div class="container">
+
+        <input
+          id="search-input"
+          type="search"
+          placeholder="ابحث عن منتج..."
+          autocomplete="off"
+        >
+
+      </div>
+
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#categories">التصنيفات</a>
+      <a href="index.html#products">المنتجات</a>
+      <a href="index.html#about">عن Mr.Valor</a>
+
+    </div>
+
+  </header>
+
+
+  <!-- Add Product -->
+  <main class="product-page">
+
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="index.html">الرئيسية</a>
+        <span>←</span>
+        <span>إضافة منتج</span>
+      </div>
+
+
+      <section class="product-info" style="max-width: 850px; margin: 40px auto;">
+
+        <div class="product-info-header">
+
+          <span class="eyebrow">
+            MR.VALOR MARKETPLACE
+          </span>
+
+          <h1>
+            أضف منتجك 🚀
+          </h1>
+
+          <p>
+            أضف منتجك إلى متجر Mr.Valor وسيتم حفظ بياناته في قاعدة البيانات.
+          </p>
+
+        </div>
+
+
+        <form
+          id="add-product-form"
+          class="product-form"
+        >
+
+          <!-- Product Name -->
+          <div class="form-group">
+
+            <label for="product-name">
+              اسم المنتج
+            </label>
+
+            <input
+              id="product-name"
+              name="name"
+              type="text"
+              placeholder="مثال: Social Media Content Pack"
+              required
+            >
+
+          </div>
+
+
+          <!-- Description -->
+          <div class="form-group">
+
+            <label for="product-description">
+              وصف المنتج
+            </label>
+
+            <textarea
+              id="product-description"
+              name="description"
+              rows="6"
+              placeholder="اكتب وصفًا واضحًا للمنتج..."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <!-- Price -->
+          <div class="form-group">
+
+            <label for="product-price">
+              السعر بالدولار
+            </label>
+
+            <input
+              id="product-price"
+              name="price"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="7"
+              required
+            >
+
+          </div>
+
+
+          <!-- Category -->
+          <div class="form-group">
+
+            <label for="product-category">
+              التصنيف
+            </label>
+
+            <select
+              id="product-category"
+              name="category"
+              required
+            >
+
+              <option value="">
+                اختر التصنيف
+              </option>
+
+              <option value="Canva">
+                Canva
+              </option>
+
+              <option value="Google Sheets">
+                Google Sheets
+              </option>
+
+              <option value="Excel">
+                Excel
+              </option>
+
+              <option value="Other">
+                أخرى
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- Product URL -->
+          <div class="form-group">
+
+            <label for="product-url">
+              رابط المنتج
+            </label>
+
+            <input
+              id="product-url"
+              name="product_url"
+              type="url"
+              placeholder="https://..."
+              required
+            >
+
+            <small>
+              ضع رابط المنتج أو رابط صفحة التسليم. سنطوّر نظام التسليم الآمن لاحقًا.
+            </small>
+
+          </div>
+
+
+          <!-- Product Image -->
+          <div class="form-group">
+
+            <label for="product-image">
+              صورة المنتج
+            </label>
+
+            <input
+              id="product-image"
+              name="image"
+              type="file"
+              accept="image/*"
+            >
+
+            <small>
+              رفع الصورة وتخزينها بشكل دائم سيتم ربطه بـ Cloudflare R2 لاحقًا.
+            </small>
+
+          </div>
+
+
+          <!-- Buttons -->
+          <div class="product-actions">
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              إضافة المنتج
+            </button>
+
+            <a
+              href="index.html"
+              class="btn btn-secondary"
+            >
+              إلغاء
+            </a>
+
+          </div>
+
+        </form>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div>
+          <a href="index.html" class="logo">
+            MR<span>.</span>VALOR
+          </a>
+
+          <p>
+            متجر المنتجات الرقمية الحديث.
+          </p>
+        </div>
+
+        <div>
+          <p>
+            © 2026 MR.VALOR. جميع الحقوق محفوظة.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- Main Store JavaScript -->
+  <script src="script.js"></script>
+
+  <!-- Real Add Product JavaScript -->
+  <script src="add-product.js"></script>
+
+</body>
+  </html>
