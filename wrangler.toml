@@ -1,0 +1,7 @@
+name = "abuslynt-sys"
+compatibility_date = "2026-10-03"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mrvalor-db"
+database_id = "45a443f5-6bd5-4f58-821c-1f0cbee6648b"
