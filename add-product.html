@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>إضافة منتج | Mr.Valor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .add-product-page {
+      min-height: calc(100vh - 90px);
+      padding: 70px 0 100px;
+    }
+
+    .add-product-header {
+      max-width: 760px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .add-product-header .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #8b8b98;
+    }
+
+    .add-product-header h1 {
+      margin: 0 0 14px;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .add-product-header p {
+      margin: 0 auto;
+      max-width: 600px;
+      color: #9b9ba8;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .add-product-card {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      padding: 42px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 28px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.018)
+        );
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.04);
+      backdrop-filter: blur(18px);
+    }
+
+    .form-section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .form-section-title span {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(255,255,255,.08);
+      font-size: 15px;
+    }
+
+    .form-section-title h2 {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #eeeeF3;
+    }
+
+    .required {
+      color: #aaa;
+      margin-right: 3px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 14px;
+      outline: none;
+      background: rgba(0,0,0,.28);
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      padding: 15px 17px;
+      transition: .25s ease;
+    }
+
+    .form-group input,
+    .form-group select {
+      height: 52px;
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+      line-height: 1.8;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #666674;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: rgba(255,255,255,.28);
+      background: rgba(0,0,0,.4);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.035);
+    }
+
+    .form-group select option {
+      background: #111118;
+      color: #fff;
+    }
+
+    .field-help {
+      display: block;
+      margin-top: 8px;
+      color: #777784;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .upload-box {
+      position: relative;
+      border: 1px dashed rgba(255,255,255,.16);
+      border-radius: 18px;
+      padding: 28px 20px;
+      text-align: center;
+      background: rgba(255,255,255,.018);
+      transition: .25s ease;
+    }
+
+    .upload-box:hover {
+      border-color: rgba(255,255,255,.3);
+      background: rgba(255,255,255,.03);
+    }
+
+    .upload-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 12px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(255,255,255,.07);
+      font-size: 20px;
+    }
+
+    .upload-title {
+      margin: 0 0 5px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .upload-text {
+      margin: 0 0 15px;
+      color: #777784;
+      font-size: 12px;
+    }
+
+    .upload-box input[type="file"] {
+      height: auto;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .form-divider {
+      height: 1px;
+      margin: 10px 0 32px;
+      background: rgba(255,255,255,.07);
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .form-actions button,
+    .form-actions a {
+      min-width: 150px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .form-actions button {
+      border: 0;
+      color: #09090d;
+      background: #fff;
+    }
+
+    .form-actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255,255,255,.12);
+    }
+
+    .form-actions button:disabled {
+      opacity: .6;
+      cursor: wait;
+      transform: none;
+    }
+
+    .form-actions a {
+      border: 1px solid rgba(255,255,255,.09);
+      color: #aaaab5;
+      background: rgba(255,255,255,.025);
+    }
+
+    .form-actions a:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,.2);
+    }
+
+    .security-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 25px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.025);
+      color: #777784;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .security-note strong {
+      color: #aaaab5;
+    }
+
+    @media (max-width: 700px) {
+      .add-product-page {
+        padding: 45px 0 70px;
+      }
+
+      .add-product-header {
+        margin-bottom: 30px;
+      }
+
+      .add-product-header h1 {
+        font-size: 34px;
+      }
+
+      .add-product-card {
+        padding: 24px 18px;
+        border-radius: 22px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .form-actions {
+        flex-direction: column;
+      }
+
+      .form-actions button,
+      .form-actions a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+
+      <a href="index.html" class="logo">
+        MR.<span>VALOR</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#products">المنتجات</a>
+        <a href="index.html#categories">التصنيفات</a>
+        <a href="index.html#about">عن Mr.Valor</a>
+      </nav>
+
+      <div class="nav-actions">
+
+        <button id="search-toggle" class="icon-button" type="button">
+          🔍
+        </button>
+
+        <button id="cart-button" class="cart-button" type="button">
+          🛒
+          <span id="cart-count">0</span>
+        </button>
+
+        <button id="menu-button" class="menu-button" type="button">
+          ☰
+        </button>
+
+      </div>
+    </div>
+
+    <div id="search-box" class="search-box">
+      <div class="container">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="ابحث عن منتج..."
+          autocomplete="off"
+        >
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#products">المنتجات</a>
+      <a href="index.html#categories">التصنيفات</a>
+      <a href="index.html#about">عن Mr.Valor</a>
+    </div>
+  </header>
+
+
+  <main class="add-product-page">
+
+    <div class="container">
+
+      <div class="add-product-header">
+        <span class="eyebrow">MR.VALOR MARKETPLACE</span>
+
+        <h1>أضف منتجك</h1>
+
+        <p>
+          حوّل منتجك الرقمي إلى فرصة للبيع.
+          أضف تفاصيل المنتج الآن وسيظهر في متجر Mr.Valor.
+        </p>
+      </div>
+
+
+      <form id="add-product-form" class="add-product-card">
+
+        <div class="form-section-title">
+          <span>✦</span>
+          <h2>معلومات المنتج</h2>
+        </div>
+
+
+        <div class="form-grid">
+
+          <div class="form-group full">
+            <label for="product-name">
+              اسم المنتج <span class="required">*</span>
+            </label>
+
+            <input
+              id="product-name"
+              type="text"
+              placeholder="مثال: Social Media Content Pack"
+              required
+            >
+          </div>
+
+
+          <div class="form-group full">
+            <label for="product-description">
+              وصف المنتج <span class="required">*</span>
+            </label>
+
+            <textarea
+              id="product-description"
+              placeholder="اكتب وصفًا واضحًا ومقنعًا للمنتج..."
+              required
+            ></textarea>
+          </div>
+
+
+          <div class="form-group">
+            <label for="product-price">
+              السعر بالدولار <span class="required">*</span>
+            </label>
+
+            <input
+              id="product-price"
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="7.00"
+              required
+            >
+          </div>
+
+
+          <div class="form-group">
+            <label for="product-category">
+              التصنيف <span class="required">*</span>
+            </label>
+
+            <select id="product-category" required>
+              <option value="">اختر التصنيف</option>
+              <option value="Canva">Canva Templates</option>
+              <option value="Google Sheets">Google Sheets</option>
+              <option value="Excel">Excel</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+
+          <div class="form-divider full"></div>
+
+
+          <div class="form-group full">
+            <label for="product-url">
+              رابط المنتج <span class="required">*</span>
+            </label>
+
+            <input
+              id="product-url"
+              type="url"
+              placeholder="https://..."
+              required
+            >
+
+            <span class="field-help">
+              ضع رابط المنتج الرقمي أو رابط التسليم.
+            </span>
+          </div>
+
+
+          <div class="form-group full">
+
+            <label>
+              صورة المنتج
+            </label>
+
+            <div class="upload-box">
+
+              <div class="upload-icon">
+                ↑
+              </div>
+
+              <p class="upload-title">
+                أضف صورة للمنتج
+              </p>
+
+              <p class="upload-text">
+                PNG أو JPG — سيتم تفعيل التخزين السحابي للصورة لاحقًا.
+              </p>
+
+              <input
+                id="product-image"
+                type="file"
+                accept="image/*"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-actions">
+
+          <button type="submit">
+            إضافة المنتج
+          </button>
+
+          <a href="index.html">
+            إلغاء
+          </a>
+
+        </div>
+
+
+        <div class="security-note">
+          🔒
+          <span>
+            <strong>بياناتك محفوظة.</strong>
+            سيتم استخدام المعلومات لإضافة المنتج إلى منصة Mr.Valor.
+          </span>
+        </div>
+
+      </form>
+
+    </div>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div>
+          <a href="index.html" class="logo">
+            MR.<span>VALOR</span>
+          </a>
+
+          <p>
+            متجر رقمي عالمي للمنتجات والأدوات الرقمية.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 Mr.Valor. جميع الحقوق محفوظة.
+        </p>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+  <script src="add-product.js"></script>
+
+</body>
+          </html>
