@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>تسجيل دخول المالك | Mr.Valor</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 35%),
+        #080b12;
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 430px;
+      padding: 20px;
+    }
+
+    .login-card {
+      background: rgba(20, 25, 35, 0.95);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 35px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .login-logo a {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .login-logo span {
+      opacity: 0.55;
+    }
+
+    .login-card h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .login-card > p {
+      text-align: center;
+      color: #9ca3af;
+      margin-bottom: 28px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .login-form label {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .login-form input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #0d111a;
+      color: #fff;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .login-form input:focus {
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .login-button {
+      width: 100%;
+      margin-top: 8px;
+      border: 0;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .login-message {
+      min-height: 24px;
+      text-align: center;
+      margin-top: 18px;
+      color: #fff;
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      color: #9ca3af;
+      text-decoration: none;
+    }
+
+    .back-home:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-wrapper">
+
+    <div class="login-card">
+
+      <div class="login-logo">
+        <a href="index.html">
+          MR.<span>VALOR</span>
+        </a>
+      </div>
+
+      <h1>دخول المالك</h1>
+
+      <p>
+        هذه الصفحة خاصة بمالك متجر Mr.Valor
+      </p>
+
+      <form id="owner-login-form" class="login-form">
+
+        <label for="owner-password">
+          كلمة المرور
+        </label>
+
+        <input
+          id="owner-password"
+          type="password"
+          placeholder="أدخل كلمة المرور"
+          autocomplete="current-password"
+          required
+        >
+
+        <button
+          type="submit"
+          class="btn btn-primary login-button"
+        >
+          تسجيل الدخول
+        </button>
+
+      </form>
+
+      <div
+        id="login-message"
+        class="login-message"
+      ></div>
+
+      <a
+        href="index.html"
+        class="back-home"
+      >
+        العودة إلى المتجر
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+    const loginForm =
+      document.getElementById("owner-login-form");
+
+    const passwordInput =
+      document.getElementById("owner-password");
+
+    const message =
+      document.getElementById("login-message");
+
+    loginForm.addEventListener("submit", async (event) => {
+
+      event.preventDefault();
+
+      const password =
+        passwordInput.value.trim();
+
+      if (!password) {
+        message.textContent =
+          "يرجى إدخال كلمة المرور.";
+        return;
+      }
+
+      message.textContent =
+        "جاري تسجيل الدخول...";
+
+      try {
+
+        const response =
+          await fetch("/api/auth/login", {
+            method: "POST",
+
+            credentials: "same-origin",
+
+            headers: {
+              "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+              password: password
+            })
+          });
+
+        const result =
+          await response.json();
+
+        if (!response.ok || !result.success) {
+          message.textContent =
+            result.message ||
+            "فشل تسجيل الدخول.";
+          return;
+        }
+
+        message.textContent =
+          "تم تسجيل الدخول بنجاح ✅";
+
+        setTimeout(() => {
+          window.location.href =
+            "/add-product.html";
+        }, 700);
+
+      } catch (error) {
+
+        console.error(error);
+
+        message.textContent =
+          "حدث خطأ في الاتصال بالموقع.";
+      }
+
+    });
+  </script>
+
+</body>
+</html>
