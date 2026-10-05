@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>السلة | MR.VALOR</title>
+
+  <meta
+    name="description"
+    content="سلة مشتريات Mr.Valor"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER
+========================================== -->
+
+<header class="site-header">
+
+  <div class="container">
+
+    <nav class="navbar">
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+        MR.<span>VALOR</span>
+      </a>
+
+
+      <div class="nav-links">
+
+        <a href="index.html">
+          الرئيسية
+        </a>
+
+        <a href="index.html#categories">
+          التصنيفات
+        </a>
+
+        <a href="index.html#products">
+          المنتجات
+        </a>
+
+        <a href="index.html#about">
+          عن MR.VALOR
+        </a>
+
+      </div>
+
+
+      <div class="nav-actions">
+
+        <button
+          id="search-toggle"
+          class="icon-button"
+          aria-label="البحث"
+          type="button"
+        >
+          🔍
+        </button>
+
+
+        <button
+          id="cart-button"
+          class="cart-button"
+          aria-label="السلة"
+          type="button"
+        >
+          🛒
+          <span id="cart-count">
+            0
+          </span>
+        </button>
+
+
+        <button
+          id="menu-button"
+          class="menu-button"
+          aria-label="القائمة"
+          type="button"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </nav>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+      id="mobile-menu"
+      class="mobile-menu"
+    >
+
+      <a href="index.html">
+        الرئيسية
+      </a>
+
+      <a href="index.html#categories">
+        التصنيفات
+      </a>
+
+      <a href="index.html#products">
+        المنتجات
+      </a>
+
+      <a href="index.html#about">
+        عن MR.VALOR
+      </a>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div
+      id="search-box"
+      class="search-box"
+    >
+
+      <input
+        id="search-input"
+        type="search"
+        placeholder="ابحث عن منتج..."
+      >
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- ==========================================
+     CART
+========================================== -->
+
+<main>
+
+  <section class="product-page">
+
+    <div class="container">
+
+
+      <!-- BREADCRUMB -->
+
+      <div class="breadcrumb">
+
+        <a href="index.html">
+          الرئيسية
+        </a>
+
+        <span>
+          ›
+        </span>
+
+        <span>
+          السلة
+        </span>
+
+      </div>
+
+
+
+      <!-- TITLE -->
+
+      <div class="section-heading">
+
+        <span>
+          MR.VALOR
+        </span>
+
+        <h1>
+          سلة المشتريات
+        </h1>
+
+      </div>
+
+
+
+      <!-- EMPTY CART -->
+
+      <div
+        id="cart-empty"
+        class="product-card"
+        style="display: none;"
+      >
+
+        <div class="product-content">
+
+          <div
+            class="product-placeholder"
+            style="font-size: 50px;"
+          >
+            🛒
+          </div>
+
+          <h3>
+            السلة فارغة
+          </h3>
+
+          <p>
+            لم تضف أي منتجات إلى السلة بعد.
+          </p>
+
+          <br>
+
+          <a
+            href="index.html#products"
+            class="btn btn-primary"
+          >
+            تصفح المنتجات
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CART ITEMS -->
+
+      <div
+        id="cart-items"
+        class="cart-items"
+      >
+      </div>
+
+
+
+      <!-- CART SUMMARY -->
+
+      <div
+        id="cart-summary"
+        class="product-card"
+        style="margin-top: 25px;"
+      >
+
+        <div class="product-content">
+
+
+          <div
+            style="
+              display:flex;
+              justify-content:space-between;
+              align-items:center;
+              gap:20px;
+              flex-wrap:wrap;
+            "
+          >
+
+            <div>
+
+              <span class="product-category">
+                الإجمالي
+              </span>
+
+              <h2
+                id="cart-total"
+                class="product-price"
+                style="font-size: 32px; margin-top: 8px;"
+              >
+                $0.00
+              </h2>
+
+            </div>
+
+
+            <button
+              id="checkout-button"
+              type="button"
+              class="btn btn-primary"
+            >
+              إتمام الشراء →
+            </button>
+
+          </div>
+
+
+          <p
+            style="
+              margin-top:20px;
+              opacity:.7;
+            "
+          >
+            سيتم تحويلك إلى صفحة الدفع بعد اختيار
+            طريقة الدفع المناسبة.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+</main>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-content">
+
+
+      <div>
+
+        <a
+          href="index.html"
+          class="logo"
+        >
+          MR.<span>VALOR</span>
+        </a>
+
+        <p>
+          منتجات رقمية تساعدك على العمل
+          بشكل أذكى وأسرع.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          روابط
+        </h3>
+
+        <a href="index.html">
+          الرئيسية
+        </a>
+
+        <a href="index.html#products">
+          المنتجات
+        </a>
+
+        <a href="index.html#about">
+          عن MR.VALOR
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          الدعم
+        </h3>
+
+        <a href="#">
+          تواصل معنا
+        </a>
+
+        <a href="#">
+          سياسة الاسترجاع
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 MR.VALOR
+      </span>
+
+      <span>
+        جميع الحقوق محفوظة
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- ==========================================
+     CART CHECKOUT
+========================================== -->
+
+<script>
+
+const checkoutButton =
+  document.getElementById(
+    "checkout-button"
+  );
+
+
+if (checkoutButton) {
+
+  checkoutButton.addEventListener(
+    "click",
+    () => {
+
+      if (
+        typeof cart === "undefined" ||
+        !Array.isArray(cart) ||
+        cart.length === 0
+      ) {
+
+        alert(
+          "السلة فارغة حاليًا 🛒"
+        );
+
+        return;
+
+      }
+
+
+      alert(
+        "سيتم تفعيل الدفع الإلكتروني في الخطوة التالية."
+      );
+
+    }
+  );
+
+}
+
+</script>
+
+
+<!-- ==========================================
+     MAIN SCRIPT
+========================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
