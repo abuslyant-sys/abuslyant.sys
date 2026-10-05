@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>الدفع | Mr.Valor</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .payment-page {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .payment-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .payment-header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .payment-header p {
+      color: #999;
+    }
+
+    .payment-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .payment-card {
+      background: #11131a;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .payment-card h2 {
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
+
+    .product-summary {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .product-summary img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 14px;
+      background: #1a1d26;
+    }
+
+    .product-summary-info h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .product-summary-info p {
+      color: #999;
+      margin: 5px 0;
+    }
+
+    .product-price {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .payment-method {
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .payment-method-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .payment-method p {
+      color: #999;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .card-icons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .card-icon {
+      background: #fff;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .pay-button {
+      width: 100%;
+      border: none;
+      padding: 16px;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .pay-button:hover {
+      opacity: .9;
+    }
+
+    .secure-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(37,99,235,.08);
+      border-radius: 12px;
+      color: #aaa;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 25px;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 50px;
+      color: #aaa;
+    }
+
+    .error {
+      text-align: center;
+      padding: 50px;
+      color: #ff6b6b;
+    }
+
+    @media (max-width: 800px) {
+      .payment-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .payment-header h1 {
+        font-size: 28px;
+      }
+
+      .product-summary img {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo">
+        Mr.Valor
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#categories">التصنيفات</a>
+        <a href="cart.html">السلة</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main class="payment-page">
+
+    <div class="payment-header">
+      <h1>إتمام الدفع</h1>
+      <p>أكمل عملية الدفع للحصول على منتجك الرقمي.</p>
+    </div>
+
+
+    <div id="loading" class="loading">
+      جاري تحميل بيانات المنتج...
+    </div>
+
+
+    <div id="error" class="error" style="display:none;">
+      تعذر العثور على المنتج.
+    </div>
+
+
+    <div id="payment-content" style="display:none;">
+
+      <div class="payment-layout">
+
+        <section class="payment-card">
+
+          <h2>ملخص الطلب</h2>
+
+          <div class="product-summary">
+
+            <img
+              id="product-image"
+              src=""
+              alt="صورة المنتج"
+            >
+
+            <div class="product-summary-info">
+
+              <h3 id="product-name">—</h3>
+
+              <p id="product-category">—</p>
+
+              <div class="product-price">
+                $<span id="product-price">0.00</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="secure-box">
+            🔒 بيانات طلبك يتم التعامل معها بأمان.
+            <br>
+            بعد نجاح الدفع سيتم الانتقال إلى مرحلة الحصول على المنتج.
+          </div>
+
+        </section>
+
+
+        <section class="payment-card">
+
+          <h2>طريقة الدفع</h2>
+
+          <div class="payment-method">
+
+            <div class="payment-method-title">
+              💳 الدفع بالبطاقة
+            </div>
+
+            <p>
+              ادفع باستخدام بطاقة Visa أو Mastercard.
+            </p>
+
+            <div class="card-icons">
+              <span class="card-icon">VISA</span>
+              <span class="card-icon">Mastercard</span>
+            </div>
+
+            <button
+              id="pay-button"
+              class="pay-button"
+              type="button"
+            >
+              الدفع بالبطاقة
+            </button>
+
+          </div>
+
+          <a
+            id="back-product"
+            href="#"
+            class="back-link"
+          >
+            ← العودة إلى المنتج
+          </a>
+
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <script>
+
+    const API_URL = "/api/products";
+
+    const params = new URLSearchParams(
+      window.location.search
+    );
+
+    const productId = params.get("id");
+
+    const loading =
+      document.getElementById("loading");
+
+    const error =
+      document.getElementById("error");
+
+    const content =
+      document.getElementById("payment-content");
+
+    const productName =
+      document.getElementById("product-name");
+
+    const productCategory =
+      document.getElementById("product-category");
+
+    const productPrice =
+      document.getElementById("product-price");
+
+    const productImage =
+      document.getElementById("product-image");
+
+    const backProduct =
+      document.getElementById("back-product");
+
+    const payButton =
+      document.getElementById("pay-button");
+
+
+    async function loadProduct() {
+
+      if (!productId) {
+        showError();
+        return;
+      }
+
+      try {
+
+        const response =
+          await fetch(API_URL);
+
+        if (!response.ok) {
+          throw new Error(
+            "Failed to load products"
+          );
+        }
+
+        const data =
+          await response.json();
+
+        if (
+          !data.success ||
+          !Array.isArray(data.products)
+        ) {
+          throw new Error(
+            "Invalid products data"
+          );
+        }
+
+        const product =
+          data.products.find(
+            item =>
+              String(item.id) ===
+              String(productId)
+          );
+
+        if (!product) {
+          showError();
+          return;
+        }
+
+        productName.textContent =
+          product.name;
+
+        productCategory.textContent =
+          product.category ||
+          "منتج رقمي";
+
+        productPrice.textContent =
+          Number(product.price).toFixed(2);
+
+        if (product.image_url) {
+
+          productImage.src =
+            product.image_url;
+
+        } else {
+
+          productImage.src =
+            "https://via.placeholder.com/300x300?text=Mr.Valor";
+
+        }
+
+        backProduct.href =
+          `product.html?id=${encodeURIComponent(
+            product.id
+          )}`;
+
+
+        loading.style.display = "none";
+
+        content.style.display = "block";
+
+
+        payButton.addEventListener(
+          "click",
+          function() {
+
+            alert(
+              "الدفع الإلكتروني لم يتم تفعيله بعد. سيتم ربط Visa و Mastercard بعد إتمام ربط بوابة الدفع."
+            );
+
+          }
+        );
+
+
+      } catch (err) {
+
+        console.error(err);
+
+        showError();
+
+      }
+
+    }
+
+
+    function showError() {
+
+      loading.style.display = "none";
+
+      content.style.display = "none";
+
+      error.style.display = "block";
+
+    }
+
+
+    loadProduct();
+
+  </script>
+
+</body>
+</html>
