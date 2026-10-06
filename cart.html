@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سلة المشتريات | Mr.Valor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">Mr.<span>Valor</span></a>
+
+    <nav class="main-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#products">المنتجات</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="cart.html" class="cart-link">🛒 السلة</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="product-page">
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="index.html">الرئيسية</a>
+      <span> / </span>
+      <span>سلة المشتريات</span>
+    </div>
+
+    <h1 style="margin-bottom:30px;">سلة المشتريات</h1>
+
+    <div id="cart-empty" style="display:none; text-align:center; padding:50px;">
+      <h2>السلة فارغة</h2>
+      <p>لم تقم بإضافة أي منتجات بعد.</p>
+
+      <a href="index.html#products" class="btn btn-primary">
+        تصفح المنتجات
+      </a>
+    </div>
+
+    <div id="cart-content">
+
+      <div id="cart-items"></div>
+
+      <div
+        id="cart-summary"
+        style="
+          margin-top:30px;
+          padding:25px;
+          border-radius:16px;
+          background:#111827;
+        "
+      >
+
+        <h2>
+          الإجمالي:
+          <span id="cart-total">$0.00</span>
+        </h2>
+
+        <button
+          id="checkout-button"
+          class="btn btn-primary"
+          type="button"
+          style="margin-top:20px; width:100%;"
+        >
+          إتمام الشراء →
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-content">
+
+      <div>
+        <div class="logo">Mr.<span>Valor</span></div>
+
+        <p>
+          منتجات رقمية تساعدك على العمل بشكل أسرع وأفضل.
+        </p>
+      </div>
+
+      <div>
+        <h4>روابط</h4>
+        <a href="index.html">الرئيسية</a>
+        <a href="cart.html">السلة</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Mr.Valor — جميع الحقوق محفوظة.
+    </div>
+
+  </div>
+</footer>
+
+
+<script src="script.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const checkoutButton =
+    document.getElementById("checkout-button");
+
+  if (!checkoutButton) return;
+
+
+  checkoutButton.addEventListener("click", () => {
+
+    let cart = [];
+
+    try {
+
+      cart =
+        JSON.parse(
+          localStorage.getItem("mrvalor_cart")
+        ) || [];
+
+    } catch {
+
+      cart = [];
+
+    }
+
+
+    if (!Array.isArray(cart) || cart.length === 0) {
+
+      alert("السلة فارغة.");
+
+      return;
+
+    }
+
+
+    let total = 0;
+
+    let productsText = "";
+
+
+    cart.forEach((item, index) => {
+
+      const name =
+        String(item.name || "منتج");
+
+      const price =
+        Number(item.price || 0);
+
+      const quantity =
+        Number(item.quantity || 1);
+
+      const subtotal =
+        price * quantity;
+
+      total += subtotal;
+
+
+      productsText +=
+        `${index + 1}. ${name}\n` +
+        `الكمية: ${quantity}\n` +
+        `السعر: $${price.toFixed(2)}\n` +
+        `المجموع: $${subtotal.toFixed(2)}\n\n`;
+
+    });
+
+
+    const paymentUrl =
+      "https://app.binance.com/uni-qr/request-to-pay?billOrderId=458381522921906176&billType=request_a_payment";
+
+
+    const whatsappMessage =
+`طلب شراء جديد من Mr.Valor
+
+المنتجات:
+
+${productsText}
+الإجمالي:
+$${total.toFixed(2)}
+
+رابط الدفع عبر Binance:
+${paymentUrl}
+
+بعد إتمام الدفع، يرجى إرسال تأكيد الدفع هنا.`;
+
+
+    const whatsappUrl =
+      "https://wa.me/218924670334?text=" +
+      encodeURIComponent(whatsappMessage);
+
+
+    window.open(
+      whatsappUrl,
+      "_blank"
+    );
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
