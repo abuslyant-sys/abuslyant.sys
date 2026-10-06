@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>المنتج | Mr.Valor</title>
+
+  <meta
+    name="description"
+    content="تفاصيل المنتج على Mr.Valor"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="site-header">
+
+    <div class="container nav-container">
+
+      <a href="index.html" class="logo">
+        Mr.<span>Valor</span>
+      </a>
+
+      <nav class="main-nav">
+
+        <a href="index.html">
+          الرئيسية
+        </a>
+
+        <a href="index.html#categories">
+          التصنيفات
+        </a>
+
+        <a href="index.html#products">
+          المنتجات
+        </a>
+
+      </nav>
+
+      <div class="nav-actions">
+
+        <a href="cart.html" class="cart-link">
+          🛒 السلة
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= PRODUCT ================= -->
+
+  <main>
+
+    <section class="product-page">
+
+      <div class="container">
+
+        <div class="breadcrumb">
+
+          <a href="index.html">
+            الرئيسية
+          </a>
+
+          <span> / </span>
+
+          <span id="breadcrumb-product">
+            المنتج
+          </span>
+
+        </div>
+
+
+        <div
+          id="product-loading"
+          class="product-loading"
+        >
+          جاري تحميل المنتج...
+        </div>
+
+
+        <div
+          id="product-error"
+          class="product-error"
+          style="display:none;"
+        >
+          تعذر تحميل المنتج.
+        </div>
+
+
+        <div
+          id="product-content"
+          class="product-layout"
+          style="display:none;"
+        >
+
+          <!-- صورة المنتج -->
+
+          <div class="product-main">
+
+            <div class="product-main-image">
+
+              <img
+                id="product-image"
+                src=""
+                alt="صورة المنتج"
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- معلومات المنتج -->
+
+          <div class="product-info">
+
+            <div class="product-category">
+              <span id="product-category">
+                -
+              </span>
+            </div>
+
+
+            <h1 id="product-name">
+              -
+            </h1>
+
+
+            <div class="product-price">
+
+              $<span id="product-price">
+                0.00
+              </span>
+
+            </div>
+
+
+            <div class="product-description">
+
+              <h3>
+                وصف المنتج
+              </h3>
+
+              <p id="product-description">
+                -
+              </p>
+
+            </div>
+
+
+            <div class="product-actions">
+
+              <button
+                id="buy-now-button"
+                class="btn btn-primary"
+                type="button"
+              >
+                شراء الآن
+              </button>
+
+
+              <button
+                id="add-cart-button"
+                class="btn btn-secondary"
+                type="button"
+              >
+                🛒 أضف إلى السلة
+              </button>
+
+            </div>
+
+
+            <div class="purchase-trust">
+
+              <div>
+                ✓ منتج رقمي
+              </div>
+
+              <div>
+                ✓ دفع عبر Binance
+              </div>
+
+              <div>
+                ✓ دعم عبر WhatsApp
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div>
+
+          <div class="logo">
+            Mr.<span>Valor</span>
+          </div>
+
+          <p>
+            منتجات رقمية تساعدك على العمل بشكل أسرع وأفضل.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            روابط
+          </h4>
+
+          <a href="index.html">
+            الرئيسية
+          </a>
+
+          <a href="cart.html">
+            السلة
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        © 2026 Mr.Valor — جميع الحقوق محفوظة.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      async () => {
+
+        const params =
+          new URLSearchParams(
+            window.location.search
+          );
+
+        const productId =
+          params.get("id");
+
+
+        const loading =
+          document.getElementById(
+            "product-loading"
+          );
+
+        const errorBox =
+          document.getElementById(
+            "product-error"
+          );
+
+        const content =
+          document.getElementById(
+            "product-content"
+          );
+
+
+        const nameElement =
+          document.getElementById(
+            "product-name"
+          );
+
+        const priceElement =
+          document.getElementById(
+            "product-price"
+          );
+
+        const descriptionElement =
+          document.getElementById(
+            "product-description"
+          );
+
+        const categoryElement =
+          document.getElementById(
+            "product-category"
+          );
+
+        const imageElement =
+          document.getElementById(
+            "product-image"
+          );
+
+        const breadcrumbElement =
+          document.getElementById(
+            "breadcrumb-product"
+          );
+
+        const buyButton =
+          document.getElementById(
+            "buy-now-button"
+          );
+
+        const addCartButton =
+          document.getElementById(
+            "add-cart-button"
+          );
+
+
+        // لا يوجد ID
+
+        if (!productId) {
+
+          loading.style.display = "none";
+
+          errorBox.textContent =
+            "لم يتم تحديد المنتج.";
+
+          errorBox.style.display =
+            "block";
+
+          return;
+        }
+
+
+        try {
+
+          const response =
+            await fetch(
+              "/api/products"
+            );
+
+
+          if (!response.ok) {
+
+            throw new Error(
+              "تعذر الاتصال بقاعدة البيانات."
+            );
+
+          }
+
+
+          const data =
+            await response.json();
+
+
+          if (
+            !data.success ||
+            !Array.isArray(data.products)
+          ) {
+
+            throw new Error(
+              "تعذر جلب المنتجات."
+            );
+
+          }
+
+
+          const product =
+            data.products.find(
+              item =>
+                String(item.id) ===
+                String(productId)
+            );
+
+
+          if (!product) {
+
+            throw new Error(
+              "المنتج غير موجود."
+            );
+
+          }
+
+
+          const name =
+            String(
+              product.name || ""
+            );
+
+          const description =
+            String(
+              product.description || ""
+            );
+
+          const category =
+            String(
+              product.category || ""
+            );
+
+          const price =
+            Number(product.price);
+
+
+          // عرض البيانات
+
+          nameElement.textContent =
+            name;
+
+          descriptionElement.textContent =
+            description;
+
+          categoryElement.textContent =
+            category;
+
+          breadcrumbElement.textContent =
+            name;
+
+          priceElement.textContent =
+            Number.isFinite(price)
+              ? price.toFixed(2)
+              : "0.00";
+
+
+          // صورة المنتج
+
+          if (product.image_url) {
+
+            imageElement.src =
+              product.image_url;
+
+            imageElement.alt =
+              name;
+
+          } else {
+
+            imageElement.style.display =
+              "none";
+
+          }
+
+
+          // عنوان الصفحة
+
+          document.title =
+            `${name} | Mr.Valor`;
+
+
+          // إظهار المنتج
+
+          loading.style.display =
+            "none";
+
+          content.style.display =
+            "grid";
+
+
+          // ====================================
+          // إضافة إلى السلة
+          // ====================================
+
+          addCartButton.addEventListener(
+            "click",
+            () => {
+
+              const cartItem = {
+
+                id: product.id,
+
+                name: name,
+
+                price: price,
+
+                quantity: 1
+
+              };
+
+
+              let cart = [];
+
+              try {
+
+                cart =
+                  JSON.parse(
+                    localStorage.getItem(
+                      "mrvalor_cart"
+                    )
+                  ) || [];
+
+              } catch {
+
+                cart = [];
+
+              }
+
+
+              const existing =
+                cart.find(
+                  item =>
+                    String(item.id) ===
+                    String(product.id)
+                );
+
+
+              if (existing) {
+
+                existing.quantity =
+                  Number(
+                    existing.quantity || 1
+                  ) + 1;
+
+              } else {
+
+                cart.push(
+                  cartItem
+                );
+
+              }
+
+
+              localStorage.setItem(
+                "mrvalor_cart",
+                JSON.stringify(cart)
+              );
+
+
+              addCartButton.textContent =
+                "✓ تمت الإضافة";
+
+              setTimeout(
+                () => {
+
+                  addCartButton.textContent =
+                    "🛒 أضف إلى السلة";
+
+                },
+                1800
+              );
+
+            }
+          );
+
+
+          // ====================================
+          // الشراء عبر WhatsApp + Binance
+          // ====================================
+
+          buyButton.addEventListener(
+            "click",
+            () => {
+
+              const paymentUrl =
+                "https://app.binance.com/uni-qr/request-to-pay?billOrderId=458381522921906176&billType=request_a_payment";
+
+
+              const whatsappMessage =
+`شراء المنتج
+
+اسم المنتج: ${name}
+
+السعر: $${price.toFixed(2)}
+
+الوصف:
+${description}
+
+رابط الدفع في Binance:
+${paymentUrl}`;
+
+
+              const whatsappUrl =
+                `https://wa.me/218924670334?text=${encodeURIComponent(
+                  whatsappMessage
+                )}`;
+
+
+              window.open(
+                whatsappUrl,
+                "_blank"
+              );
+
+            }
+          );
+
+
+        } catch (err) {
+
+          console.error(
+            "Product error:",
+            err
+          );
+
+
+          loading.style.display =
+            "none";
+
+
+          errorBox.textContent =
+            err.message ||
+            "حدث خطأ أثناء تحميل المنتج.";
+
+
+          errorBox.style.display =
+            "block";
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+  <!-- الملف الرئيسي للموقع -->
+
+  <script src="script.js"></script>
+
+</body>
+  </html>
