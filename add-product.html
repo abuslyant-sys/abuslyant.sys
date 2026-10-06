@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>إضافة منتج | Mr.Valor</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <div class="container nav-container">
+
+      <a href="index.html" class="logo">
+        Mr.<span>Valor</span>
+      </a>
+
+      <nav class="main-nav">
+
+        <a href="index.html">
+          الرئيسية
+        </a>
+
+        <a href="index.html#products">
+          المنتجات
+        </a>
+
+        <a href="cart.html">
+          السلة
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <section class="product-page">
+
+      <div class="container">
+
+        <div class="breadcrumb">
+
+          <a href="index.html">
+            الرئيسية
+          </a>
+
+          <span> / </span>
+
+          <span>
+            إضافة منتج
+          </span>
+
+        </div>
+
+
+        <div
+          class="product-info"
+          style="
+            max-width: 800px;
+            margin: 40px auto;
+          "
+        >
+
+          <h1>
+            إضافة منتج جديد
+          </h1>
+
+
+          <form id="add-product-form">
+
+
+            <!-- اسم المنتج -->
+
+            <div style="margin-bottom:20px;">
+
+              <label for="product-name">
+                اسم المنتج
+              </label>
+
+              <input
+                id="product-name"
+                name="name"
+                type="text"
+                required
+                style="
+                  width:100%;
+                  padding:14px;
+                  margin-top:8px;
+                  box-sizing:border-box;
+                "
+              >
+
+            </div>
+
+
+            <!-- الوصف -->
+
+            <div style="margin-bottom:20px;">
+
+              <label for="product-description">
+                وصف المنتج
+              </label>
+
+              <textarea
+                id="product-description"
+                name="description"
+                rows="6"
+                required
+                style="
+                  width:100%;
+                  padding:14px;
+                  margin-top:8px;
+                  box-sizing:border-box;
+                "
+              ></textarea>
+
+            </div>
+
+
+            <!-- السعر -->
+
+            <div style="margin-bottom:20px;">
+
+              <label for="product-price">
+                السعر بالدولار
+              </label>
+
+              <input
+                id="product-price"
+                name="price"
+                type="number"
+                min="0"
+                step="0.01"
+                required
+                style="
+                  width:100%;
+                  padding:14px;
+                  margin-top:8px;
+                  box-sizing:border-box;
+                "
+              >
+
+            </div>
+
+
+            <!-- التصنيف -->
+
+            <div style="margin-bottom:20px;">
+
+              <label for="product-category">
+                التصنيف
+              </label>
+
+              <select
+                id="product-category"
+                name="category"
+                required
+                style="
+                  width:100%;
+                  padding:14px;
+                  margin-top:8px;
+                  box-sizing:border-box;
+                "
+              >
+
+                <option value="">
+                  اختر التصنيف
+                </option>
+
+                <option value="Canva">
+                  Canva
+                </option>
+
+                <option value="Google Sheets">
+                  Google Sheets
+                </option>
+
+                <option value="Excel">
+                  Excel
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- رابط المنتج -->
+
+            <div style="margin-bottom:20px;">
+
+              <label for="product-url">
+                رابط المنتج
+              </label>
+
+              <input
+                id="product-url"
+                name="product_url"
+                type="url"
+                placeholder="https://..."
+                required
+                style="
+                  width:100%;
+                  padding:14px;
+                  margin-top:8px;
+                  box-sizing:border-box;
+                "
+              >
+
+            </div>
+
+
+            <!-- صورة المنتج -->
+
+            <div style="margin-bottom:25px;">
+
+              <label for="product-image">
+                صورة المنتج
+              </label>
+
+              <input
+                id="product-image"
+                name="image"
+                type="file"
+                accept="image/*"
+                style="
+                  width:100%;
+                  padding:14px;
+                  margin-top:8px;
+                  box-sizing:border-box;
+                "
+              >
+
+            </div>
+
+
+            <!-- زر الحفظ -->
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="width:100%;"
+            >
+              إضافة المنتج
+            </button>
+
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-bottom">
+
+        © 2026 Mr.Valor — جميع الحقوق محفوظة.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- الملفات البرمجية -->
+
+  <script src="script.js"></script>
+
+  <script src="add-product.js"></script>
+
+</body>
+
+              </html>
